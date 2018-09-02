@@ -15,9 +15,10 @@ class PomodoroCalculator:
     """
 
     def __init__(self, end, start='now', short_break=5, long_break=15,
-                 pomodoro_length=25, group_length=4, interval=False, amount=False):
+                 pomodoro_length=25, group_length=4, interval=False, amount=False, transition_seconds=0):
         self.pomodoro_length_seconds = pomodoro_length * 60
 
+        self.transition_seconds = int(transition_seconds)
         if start == 'now':
             self.start = datetime.datetime.now()
             self.grace = 60
@@ -150,7 +151,7 @@ class PomodoroCalculator:
                 break
 
             # the `60` is so each segment rolls over to the next minute
-            available_time -= segment['length'] + 60
+            available_time -= segment['length'] + self.transition_seconds
 
             segments.append(segment)
 
