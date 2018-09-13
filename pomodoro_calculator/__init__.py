@@ -18,13 +18,13 @@ class PomodoroCalculator:
                  pomodoro_length=25, group_length=4, interval=False, amount=False):
         self.pomodoro_length_seconds = pomodoro_length * 60
 
+        self.amount_mode = False
+
         if start == 'now':
             self.start = datetime.datetime.now()
-            self.grace = 60
         else:
             self.start = self._create_datetime(start)
-            self.grace = 0
-        self.amount_mode = False
+
         if interval:
             self.end = self.start + self._create_timedelta(end)
         elif amount:
@@ -100,7 +100,7 @@ class PomodoroCalculator:
             'pomodoro': self.pomodoro_length_seconds,
         }
 
-        start = self.end - datetime.timedelta(seconds=offset - self.grace)
+        start = self.end - datetime.timedelta(seconds=offset)
         end = start + datetime.timedelta(seconds=types[item_type])
 
         return {
@@ -137,8 +137,7 @@ class PomodoroCalculator:
         segments = []
 
         # make sure we have enough time for at least one Pomodoro
-        # and the starting grace period
-        if available_time < self.pomodoro_length_seconds + self.grace:
+        if available_time < self.pomodoro_length_seconds:
             return
 
         for i, segment_name in enumerate(self.pomodori_segments(self.group_length)):
@@ -149,8 +148,7 @@ class PomodoroCalculator:
             elif segment['length'] > available_time:
                 break
 
-            # the `60` is so each segment rolls over to the next minute
-            available_time -= segment['length'] + 60
+            available_time -= segment['length']
 
             segments.append(segment)
 
