@@ -1,8 +1,8 @@
 ===================
 Pomodoro Calculator
 ===================
-A pretty command line tool to calculate the number of Pomodori available between
-two points in time.
+A pretty command line tool to calculate the number of Pomodoros
+available between two points in time.
 
 .. image:: https://raw.github.com/Matt-Deacalion/Pomodoro-Calculator/master/screenshot.png
     :alt: Pomodoro Calculator screenshot
@@ -42,7 +42,7 @@ Use the `get-pomodori` command from the shell to run the Pomodoro Calculator::
 
 Licence
 -------
-Copyright © 2016 `Matt Deacalion Stevens`_, released under The `MIT License`_.
+Copyright © 2018 `Matt Deacalion Stevens`_, released under The `MIT License`_.
 
-.. _Matt Deacalion Stevens: http://dirtymonkey.co.uk
-.. _MIT License: http://deacalion.mit-license.org
+.. _Matt Deacalion Stevens: https://dirtymonkey.co.uk
+.. _MIT License: https://deacalion.mit-license.org

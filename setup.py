@@ -5,7 +5,7 @@ import pomodoro_calculator
 setup(
     name='pomodoro-calculator',
     version=pomodoro_calculator.__version__.strip(),
-    url='http://dirtymonkey.co.uk/pomodoro-calculator',
+    url='https://dirtymonkey.co.uk/pomodoro-calculator',
     license='MIT',
     author=pomodoro_calculator.__author__.strip(),
     author_email='matt@dirtymonkey.co.uk',
